@@ -1,0 +1,39 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.columnSwitchBlock {
+    display: none;
+
+    @include media-min($laptop) {
+        display: flex;
+        gap: 8px;
+    }
+}
+
+.columnSwitchButton {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    background: linear-gradient(180deg, transparent 50%, rgba(10, 20, 30, .06)),
+        hsla(0, 0%, 96%, .98);
+
+    svg {
+        fill: #555;
+    }
+
+    &:disabled {
+        background: linear-gradient(180deg, transparent 50%, rgba(10, 20, 30, .08)),
+            #3cb46e;
+        cursor: auto;
+
+        svg {
+            fill: #fff;
+        }
+    }
+}

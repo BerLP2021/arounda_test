@@ -1,0 +1,43 @@
+.imageCard {
+    position: relative;
+    border-radius: 8px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.2s ease;
+    }
+
+    img {
+        display: block;
+        object-fit: cover;
+        height: auto;
+        width: 100%;
+    }
+
+    .controlsBlock {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            &::after {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+
+            .controlsBlock {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}

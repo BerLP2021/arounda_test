@@ -1,0 +1,30 @@
+@import "../styles/reset";
+@import "../styles/mixins";
+@import "../styles/variables";
+
+body {
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-geist-sans);
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: 20px;
+
+  @include media-min($tablet) {
+    padding-inline: 30px;
+  }
+
+  @include media-min($laptop) {
+    padding-inline: 40px;
+  }
+
+  @include media-min($pc) {
+    padding-inline: 50px;
+  }
+}

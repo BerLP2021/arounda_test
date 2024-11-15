@@ -1,0 +1,55 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.mobile {
+    display: none;
+
+    @include media-max($tablet) {
+        display: block;
+    }
+}
+
+.tablet {
+    display: none;
+
+    @include media-max($laptop) {
+        display: block;
+    }
+}
+
+.galleryWrapper {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(0px, 1fr));
+    gap: 24px;
+    position: relative;
+    margin-bottom: 50px;
+    width: 100%;
+
+    @include media-max($tablet) {
+        --columns: 1 !important;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        z-index: 1;
+        background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent);
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.2s ease;
+    }
+
+    &:hover::after {
+        opacity: 0;
+    }
+}
+
+.galleryColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

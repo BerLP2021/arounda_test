@@ -1,0 +1,80 @@
+.controlsBlock {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    transition: opacity 0.2s ease;
+}
+
+.controlButton {
+    background: linear-gradient(180deg, transparent 50%, rgba(10, 20, 30, .06)),
+        hsla(0, 0%, 96%, .98);
+    min-width: 40px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.favorite {
+    &.active {
+        background-color: #F15151;
+    }
+
+    @media (hover: hover) {
+        &.active:hover {
+            background-color: #e04c4c;
+        }
+    }
+}
+
+.addToCollection {
+    fill: #555;
+
+    &.active {
+        background: linear-gradient(180deg, transparent 50%, rgba(10, 20, 30, .08)),
+            #3cb46e;
+    }
+
+    @media (hover: hover) {
+        &.active:hover {
+            background: linear-gradient(180deg, transparent 50%, rgba(10, 20, 30, .09)),
+                #37a866;
+        }
+    }
+}
+
+.favorite,
+.addToCollection {
+    transition: background 0.2s ease;
+
+    & svg {
+        fill: #555;
+        width: 16px;
+        height: 16px;
+        transition: all 0.2s ease;
+    }
+
+    &.active {
+        svg {
+            fill: #fff;
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            svg {
+                fill: black
+            }
+        }
+    }
+
+    @media (hover: hover) {
+        &.active:hover {
+            svg {
+                fill: #fff;
+            }
+        }
+    }
+}

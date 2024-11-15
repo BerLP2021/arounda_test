@@ -1,0 +1,63 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.headerWrapper {
+    background-color: #b6b6b6;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    padding-block: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+
+    @include media-min($tablet) {
+        font-size: clamp(16px, calc(16px + 4 * ((100vw - 768px) / 672)), 20px);
+    }
+
+    .logo {
+        border-radius: 50%;
+    }
+
+    .contacts {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        @include media-min($tablet) {
+            flex-direction: column;
+        }
+
+        @include media-min($laptop) {
+            flex-direction: row;
+        }
+    }
+
+    .technologies {
+        display: none;
+
+        @include media-min($tablet) {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            gap: 16px;
+            align-items: center;
+            flex-grow: 1;
+        }
+    }
+
+    .link {
+        transition: color 0.2s ease;
+
+        @media (hover: hover) {
+            &:hover {
+                color: black
+            }
+        }
+    }
+}

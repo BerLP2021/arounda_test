@@ -1,0 +1,190 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.nav {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    gap: 16px;
+    margin-bottom: 75px;
+    justify-content: flex-start;
+
+    &:hover {
+
+        &::after,
+        &::before {
+            opacity: 0;
+        }
+    }
+
+    &::after,
+    &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+    }
+
+    &::after {
+        top: 0;
+        right: 0;
+        width: 10%;
+        background: linear-gradient(to left, rgba(255, 255, 255, 1), transparent);
+    }
+
+    &::before {
+        top: 0;
+        left: 0;
+        width: 10%;
+        z-index: 1;
+        background: linear-gradient(to right, rgba(255, 255, 255, 1), transparent);
+    }
+
+    &:last-child {
+        animation: ani2 90s linear infinite;
+    }
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    height: 75px;
+    animation: ani 90s linear infinite;
+}
+
+.slide {
+    flex-shrink: 0;
+    @include tag-button;
+}
+
+.pageWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 100px;
+}
+
+.imageWrapper {
+    flex: 1 1 100%;
+    position: relative;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    @include media-min($tablet) {
+        flex: 1 1 calc(100% - 300px - 32px);
+    }
+
+    @include media-min($laptop) {
+        flex: 1 1 calc(100% - 400px - 32px);
+    }
+}
+
+.contentWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+
+    @include media-min($tablet) {
+        width: 300px;
+    }
+
+    @include media-min($laptop) {
+        width: 400px;
+    }
+}
+
+.authorInfoHeader {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    row-gap: 8px;
+    column-gap: 16px;
+    align-items: center;
+    grid-template-areas:
+        'ava author'
+        'ava location';
+}
+
+.authorInfoAvatar {
+    grid-area: ava;
+    border-radius: 50%;
+}
+
+.authorInfoName {
+    grid-area: author;
+    font-size: 16px;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+.authorInfoLocation {
+    grid-area: location;
+    font-size: 14px;
+    font-style: italic;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+
+    & svg {
+        width: 20px;
+        height: 20px;
+        fill: #666;
+    }
+}
+
+.authorInfoDescription {
+    font-size: 14px;
+}
+
+.infoBlock {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.divider {
+    height: 1px;
+    background-color: #b9b9b9;
+}
+
+.infoTitle {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.authorInfoFooter {
+    position: relative;
+}
+
+@keyframes ani {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes ani2 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
