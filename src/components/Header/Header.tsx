@@ -2,16 +2,22 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import LoginButton from '../LoginButton/LoginButton';
+import { getSession, getUser } from '@/helpers/auth';
+
 import s from './Header.module.scss';
 
-const Header = () => {
+const Header = async () => {
+    const session = await getSession();
+    const user = await getUser();
+
     return (
-        <div className={s.headerWrapper}>
+        <header className={s.headerWrapper}>
             <div className={`${s.headerContainer} container`}>
                 <Link href="/"><Image className={s.logo} src='/logo.png' alt='logo' height={75} width={75} /></Link>
                 <div className={s.technologies}>
-                    <span>Next | React | Typescript | SCSS</span>
-                    <span>next-auth | MongoDB+Mongoose | Zustand</span>
+                    <span>Next | React | Typescript</span>
+                    <span>HTML5 | CSS3 | SCSS | authentication</span>
                 </div>
                 <ul className={s.contacts}>
                     <li>
@@ -25,8 +31,9 @@ const Header = () => {
                         </a>
                     </li>
                 </ul>
+                <LoginButton isLoggedIn={Boolean(session)} user={user} />
             </div>
-        </div>
+        </header>
     )
 }
 

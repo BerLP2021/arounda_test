@@ -36,6 +36,11 @@
       }
     }
 
+    &:not(:disabled):focus-within {
+      background-color: none;
+      box-shadow: none;
+    }
+
     &:not(:disabled):active,
     &:not(:disabled):focus {
       background-color: rgba(0, 0, 0, 0.2);

@@ -1,0 +1,27 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.loginButton {
+    @include button;
+    color: #000;
+    border-color: #fff;
+}
+
+.loginBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.userInfo {
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    display: none;
+
+    @include media-min($tablet) {
+        display: block;
+    }
+}

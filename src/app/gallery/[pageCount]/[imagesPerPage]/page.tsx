@@ -5,6 +5,7 @@ import React from 'react'
 import { _smallGrid } from '@/data/variables';
 import GalleryPage from '@/components/GalleryPage/GalleryPage';
 import PageTitle from '@/components/PageTitle/PageTitle';
+import { notFound } from 'next/navigation';
 
 type Props = { params: { pageCount: string; imagesPerPage: string } }
 
@@ -25,6 +26,7 @@ export default async function Page({ params }: Props) {
     const page = normalizePageQuantity(pageCount);
 
     const images = await fetchImages(page, quantity);
+    if ('errors' in images) notFound();
 
     const columns = quantity === _smallGrid ? 3 : 5;
 

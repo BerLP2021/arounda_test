@@ -19,13 +19,11 @@ const ImageCard: FC<{
     const handleAddToFavorite = useCallback((event: React.MouseEvent) => {
         event.preventDefault()
         setIsFavorite(!isFavorite);
-        alert('click Favorite');
     }, [isFavorite, setIsFavorite]);
 
     const handleAddToCollection = useCallback((event: React.MouseEvent) => {
         event.preventDefault()
         setIsAddedToCollection(!isAddedToCollection);
-        alert('click add to collection');
     }, [isAddedToCollection, setIsAddedToCollection]);
 
     return (

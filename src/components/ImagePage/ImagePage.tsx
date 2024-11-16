@@ -41,12 +41,10 @@ const ImagePage: FC<Props> = ({ image }) => {
 
     const handleAddToFavorite = useCallback(() => {
         setIsFavorite(!isFavorite);
-        alert('click Favorite');
     }, [isFavorite, setIsFavorite]);
 
     const handleAddToCollection = useCallback(() => {
         setIsAddedToCollection(!isAddedToCollection);
-        alert('click add to collection');
     }, [isAddedToCollection, setIsAddedToCollection]);
 
     const {
